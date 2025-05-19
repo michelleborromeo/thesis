@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stroke Risk Results</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .custom-btn {
+      background-color: #07b98e;
+      color: white;
+      font-weight: bold;
+      padding: 10px 30px;
+      border: none;
+      border-radius: 10px;
+    }
+    .custom-btn:hover {
+      background-color: #059d78;
+    }
+  </style>
+</head>
+<body>
+    <!-- Navbar Section -->
+
+  <div id="navbar"></div>
+
+  <div class="container py-5">
+    <div class="card-body text-dark ">
+      <h3 class="text-center mb-4">Patient Stroke Risk Result</h3>
+
+      <!-- Patient Information -->
+    <div class="mb-4">
+      <h5>Patient Name: <strong>Maria Santos</strong></h5>
+      <p>Age: 62</p>
+      <p>Stroke Risk Level: <span class="text-danger fw-bold">High</span></p>
+      <p>Date of Analysis: May 10, 2025</p>
+      <hr>
+    </div>
+
+      <!-- Risk Factors -->
+      <!-- <div class="mb-4">
+        <h5>Identified Risk Factors</h5>
+        <ul>
+          <li>High blood pressure (140/95)</li>
+          <li>Elevated cholesterol (240 mg/dL)</li>
+          <li>History of diabetes</li>
+          <li>Family history of stroke</li>
+          <li>Sedentary lifestyle</li>
+        </ul>
+      </div> -->
+
+      <!-- Doctor's Recommendation Section -->
+      <div class="mb-4">
+        <h5>Doctor's Recommendations</h5>
+        <form action="/add-recommendation" method="POST">
+          <div class="mb-3">
+            <textarea class="form-control" name="doctor_recommendation" rows="4" placeholder="Add your custom recommendations here..." required></textarea>
+          </div>
+          <div class="text-end">
+            <button type="submit" class="custom-btn">Submit Recommendation</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Load Navbar Script -->
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+  </script>
+</body>
+</html>
